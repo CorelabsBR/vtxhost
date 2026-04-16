@@ -41,6 +41,7 @@ final class App
         $this->router->get('/cpanel', [$products, 'cpanel']);
         $this->router->get('/host', [$products, 'hosting']);
         $this->router->get('/vps', [$products, 'vps']);
+        $this->router->get('/minecraft', [$products, 'minecraft']);
         $this->router->get('/login', [$auth, 'showLogin']);
         $this->router->post('/login', [$auth, 'login']);
         $this->router->get('/registro', [$auth, 'showRegister']);

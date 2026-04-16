@@ -31,6 +31,11 @@ final class ProductController extends Controller
         $this->viewCategory('vps', 'VPS Premium', 'Servidores virtuais com root total, discos NVMe e opções no Brasil e Canadá.');
     }
 
+    public function minecraft(): void
+    {
+        $this->view('products/minecraft');
+    }
+
     private function viewCategory(string $category, string $title, string $description): void
     {
         $this->view('products/list', [

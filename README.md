@@ -63,3 +63,7 @@ O setup cria um usuário root com as credenciais definidas em:
 - `APP_SETUP_ROOT_PASSWORD`
 
 Altere esses valores antes de rodar em produção.
+
+## comando pra rodar
+- C:\xampp\php\php.exe -S localhost:8000 
+-t public
