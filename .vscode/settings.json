@@ -1,6 +1,0 @@
-{
-  "code-runner.runInTerminal": true,
-  "code-runner.executorMap": {
-    "php": "cmd /c start http://localhost:8000 && C:\\xampp\\php\\php.exe -S localhost:8000 -t Z:\\var\\www\\vortexhost\\public"
-  }
-}
