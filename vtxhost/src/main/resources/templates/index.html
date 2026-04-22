@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VortexHost</title>
+
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+
+<!-- HEADER EXTERNO -->
+<div th:replace="~{fragments/header :: cabecalho}"></div>
+
+<main>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-eyebrow">
+            <span class="pill pill-accent">VortexHost · Infraestrutura Premium</span>
+        </div>
+
+        <h1 class="hero-title">Hospedagem de<br>Outro Nível</h1>
+
+        <p class="hero-subtitle">
+            Jogos, sites e VPS com hardware de ponta, anti-DDoS incluso e presença
+            no Brasil e Canadá.
+        </p>
+
+        <div class="hero-cta">
+            <a class="btn btn-primary btn-lg" href="list.html">COMEÇAR AGORA</a>
+            <a class="btn btn-ghost btn-lg" href="/vps">Ver VPS →</a>
+        </div>
+    </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section class="services-section">
+    <div class="container">
+
+        <div class="section-head center">
+            <h2 class="section-title">Escolha o serviço ideal</h2>
+        </div>
+
+        <div class="services-grid">
+
+            <div class="svc-card">
+                <h3>Hospedagem Web</h3>
+                <a href="/host">Ver Planos</a>
+            </div>
+
+            <div class="svc-card">
+                <h3>VPS Premium</h3>
+                <a href="/vps">Ver Planos</a>
+            </div>
+
+            <div class="svc-card">
+                <h3>cPanel</h3>
+                <a href="/cpanel">Ver Planos</a>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- FOOTER EXTERNO -->
+<div th:replace="~{fragments/footer :: rodape}"></div>
+
+</body>
+</html>

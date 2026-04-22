@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<body>
+
+<header class="site-header" th:fragment="cabecalho">
+    <div class="container">
+        <nav class="nav-inner">
+            <a class="brand" th:href="@{/}">
+                <div class="brand-icon">V</div>
+                <span>VortexHost</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a th:href="@{/}">Início</a></li>
+                <li><a th:href="@{/host}">Hospedagem</a></li>
+                <li><a th:href="@{/vps}">VPS</a></li>
+                <li><a th:href="@{/cpanel}">cPanel</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <span class="nav-area-note">Cliente?</span>
+                <a class="btn btn-ghost btn-sm" th:href="@{/login}">Entrar</a>
+                <a class="btn btn-primary btn-sm" th:href="@{/registro}">Criar conta</a>
+            </div>
+        </nav>
+    </div>
+</header>
+
+</body>
+</html>
