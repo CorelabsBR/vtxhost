@@ -49,11 +49,8 @@ CREATE TABLE products (
     descricao TEXT,
     preco DECIMAL(10, 2) NOT NULL,      -- campo único, removido o duplicado "price"
     categoria_id INT NOT NULL,
-    jogo_id INT NOT NULL,
-    local_id INT NOT NULL,
-    ram VARCHAR(255) NOT NULL,
-    cpu VARCHAR(255) NOT NULL,
-    storage VARCHAR(255) NOT NULL,
+    jogo_id INT NULL,
+    plan int(3) NULL,  -- campo adicionado para suporte a Plan
     ddos_protection BOOLEAN NOT NULL DEFAULT FALSE,
     featured BOOLEAN NOT NULL DEFAULT FALSE,
     sort_order INT NOT NULL DEFAULT 1,  -- era "sort_orders" (sem sentido no plural)
