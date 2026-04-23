@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<body>
+
+<footer class="site-footer" th:fragment="rodape">
+    <div class="container">
+        <div class="footer-grid">
+
+            <div class="footer-brand">
+                <div class="brand">
+                    <div class="brand-icon">V</div>
+                    <strong>VortexHost</strong>
+                </div>
+
+                <p>
+                    Criamos a infraestrutura que sempre faltou:
+                    desempenho bruto, estabilidade real e suporte que resolve.
+                </p>
+
+                <a href="mailto:contato@vortexhost.com.br">
+                    contato@vortexhost.com.br
+                </a>
+
+                <span class="footer-status" style="margin-top:.875rem;display:inline-flex">
+                    SISTEMAS ONLINE
+                </span>
+            </div>
+
+            <div class="footer-col">
+                <h4>Serviços</h4>
+                <ul class="footer-links">
+                    <li><a th:href="@{/host}">HospedaWeb</a></li>
+                    <li><a th:href="@{/vps}">VPS Premium</a></li>
+                    <li><a th:href="@{/cpanel}">cPanel Brasil</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Suporte</h4>
+                <ul class="footer-links">
+                    <li><a th:href="@{/cliente}">Área do Cliente</a></li>
+                    <li><a th:href="@{/login}">Login</a></li>
+                    <li><a th:href="@{/registro}">Criar Conta</a></li>
+                    <li><a href="mailto:contato@vortexhost.com.br">Abrir Ticket</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Legal</h4>
+                <ul class="footer-links">
+                    <li><a href="#">Termos de Serviço</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Política de Reembolso</a></li>
+                </ul>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <span class="footer-copy">
+                VortexHost © 2026
+            </span>
+
+            <div class="footer-payments">
+                <span class="payment-badge">PIX</span>
+                <span class="payment-badge">Cartão</span>
+                <span class="payment-badge">Boleto</span>
+                <span class="payment-badge">PayPal</span>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>

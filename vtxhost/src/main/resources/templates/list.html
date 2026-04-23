@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VortexHost</title>
+    <link rel="stylesheet" th:href="@{/css/app.css}">
+</head>
+<body>
+
+<!-- HEADER EXTERNO -->
+<div th:replace="~{fragments/header :: cabecalho}"></div>
+
+<main>
+
+    <!-- HERO -->
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-inner">
+                <div>
+                    <div class="eyebrow">HOSPEDAGEM</div>
+                    <h1 class="page-hero-title">Hospedagem Premium</h1>
+                    <p class="page-hero-desc">
+                        Infraestrutura de alto desempenho com proteção Anti-DDoS,
+                        ativação rápida e suporte humano.
+                    </p>
+
+                    <div class="feat-pills" style="margin-top:1rem">
+                        <span class="feat-pill">SSL Gratuito</span>
+                        <span class="feat-pill">Backup Diário</span>
+                        <span class="feat-pill">Anti-DDoS</span>
+                        <span class="feat-pill">Brasil + Canadá</span>
+                    </div>
+                </div>
+
+                <div class="hero-info-card">
+                    <p class="info-lbl">COBERTURA</p>
+                    <p class="info-val">🇧🇷 Brasil + 🇨🇦 Canadá</p>
+
+                    <div class="info-rows">
+                        <div class="info-row"><span>Anti-DDoS</span><span>Incluso</span></div>
+                        <div class="info-row"><span>Uptime alvo</span><span>99.9%</span></div>
+                        <div class="info-row"><span>Ativação</span><span>Rápida</span></div>
+                        <div class="info-row"><span>Suporte</span><span>Humano</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PLANOS -->
+    <section class="plan-section">
+        <div class="container">
+
+            <div class="plans-grid">
+
+                <div class="plan-card">
+                    <p class="plan-location-tag">🇧🇷 Brasil</p>
+                    <p class="plan-name">Starter</p>
+                    <p class="plan-desc">Ideal para sites iniciantes.</p>
+
+                    <div class="price-wrap">
+                        <span class="price-amount">R$ 19,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+
+                    <ul class="plan-feats">
+                        <li>2 vCPU</li>
+                        <li>4GB RAM</li>
+                        <li>40GB SSD</li>
+                        <li>SSL Gratuito</li>
+                        <li>Backup Diário</li>
+                    </ul>
+
+                    <a class="btn btn-primary btn-full" href="/registro">CRIAR CONTA</a>
+                </div>
+
+                <div class="plan-card popular">
+                    <div class="popular-label">MAIS ESCOLHIDO</div>
+
+                    <p class="plan-location-tag">🇧🇷 Brasil</p>
+                    <p class="plan-name">Business</p>
+                    <p class="plan-desc">Maior performance para projetos sérios.</p>
+
+                    <div class="price-wrap">
+                        <span class="price-amount">R$ 39,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+
+                    <ul class="plan-feats">
+                        <li>4 vCPU</li>
+                        <li>8GB RAM</li>
+                        <li>80GB NVMe</li>
+                        <li>Anti-DDoS</li>
+                        <li>Backup Diário</li>
+                    </ul>
+
+                    <a class="btn btn-primary btn-full" href="/registro">CRIAR CONTA</a>
+                </div>
+
+                <div class="plan-card">
+                    <p class="plan-location-tag">🇨🇦 Canadá</p>
+                    <p class="plan-name">Global</p>
+                    <p class="plan-desc">Latência internacional otimizada.</p>
+
+                    <div class="price-wrap">
+                        <span class="price-amount">R$ 59,90</span>
+                        <span class="price-period">/mês</span>
+                    </div>
+
+                    <ul class="plan-feats">
+                        <li>6 vCPU</li>
+                        <li>12GB RAM</li>
+                        <li>120GB NVMe</li>
+                        <li>IP Dedicado</li>
+                        <li>Anti-DDoS</li>
+                    </ul>
+
+                    <a class="btn btn-primary btn-full" href="/registro">CRIAR CONTA</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features-section">
+        <div class="container">
+
+            <div class="eyebrow">ENGENHARIA DE PONTA</div>
+            <h2 class="section-title">Infraestrutura Real</h2>
+
+            <div class="feature-block">
+                <div class="feature-content">
+                    <div class="feat-badge">
+                        <span class="feat-badge-lbl">HARDWARE</span>
+                        <span class="feat-badge-sub">PREMIUM</span>
+                    </div>
+
+                    <h3 class="feat-title">Sua máquina,<br>suas regras.</h3>
+
+                    <p class="feat-desc">
+                        Recursos isolados, processadores modernos e
+                        armazenamento NVMe Enterprise.
+                    </p>
+                </div>
+
+                <div class="feat-visual-card">
+                    <span class="feat-glyph">⚡</span>
+                    <div class="feat-row"><span>CPU</span><span class="val">Ryzen / Xeon</span></div>
+                    <div class="feat-row"><span>Storage</span><span class="val">NVMe</span></div>
+                    <div class="feat-row"><span>RAM</span><span class="val">DDR4 ECC</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq-section">
+        <div class="container">
+            <div class="faq-grid">
+
+                <div>
+                    <div class="eyebrow">DÚVIDAS FREQUENTES</div>
+                    <h2 class="section-title">Perguntas comuns</h2>
+
+                    <div class="faq-list">
+
+                        <details class="faq-item">
+                            <summary>A ativação é imediata?</summary>
+                            <p>Sim, geralmente em poucos minutos após pagamento.</p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Tem Anti-DDoS?</summary>
+                            <p>Sim, incluso em todos os planos.</p>
+                        </details>
+
+                        <details class="faq-item">
+                            <summary>Quais pagamentos aceitam?</summary>
+                            <p>PIX, Cartão, Boleto, PayPal e Stripe.</p>
+                        </details>
+
+                    </div>
+                </div>
+
+                <div>
+                    <div class="support-card">
+                        <p class="support-tag">SUPORTE</p>
+                        <h3 class="support-title">Humano de verdade.</h3>
+                        <p class="support-desc">
+                            Atendimento rápido e especializado.
+                        </p>
+
+                        <a class="btn btn-primary" href="mailto:contato@vortexhost.com.br">
+                            ABRIR TICKET
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!-- FOOTER EXTERNO -->
+<div th:replace="~{fragments/footer :: rodape}"></div>
+
+</body>
+</html>

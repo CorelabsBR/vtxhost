@@ -23,7 +23,7 @@ public class CartService {
     }
 
     public CartItem adicionarAoCarrinho(Long userId, Long productId, Integer quantidade) {
-        Product product = productRepository.findById(productId)
+        productRepository.findById(productId)
                 .orElseThrow(() -> new IllegalArgumentException("Produto não encontrado"));
 
         Optional<CartItem> existente = cartItemRepository.findByUserIdAndProductId(userId, productId);
