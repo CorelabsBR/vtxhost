@@ -3,47 +3,58 @@
     min-height: 92vh;
     display: flex;
     flex-direction: column;
-    /* Alinhamento à esquerda */
     align-items: flex-start;
     text-align: left;
     padding: 4rem 0 6rem;
     position: relative;
     overflow: hidden;
 
-    /* Imagem de fundo - O Vórtex Verde */
+    /* A sua única imagem de fundo */
     background-image: url('../img/index_fundo2.png');
-    background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
-    width: 100%;
-    animation: hero-pan 40s linear infinite alternate;
-    background-size: 120%;
+    
+    /* Aplica a nova animação de zoom e flutuação */
+    animation: bg-zoom-slow 120s ease-in-out infinite;
 }
 
-@keyframes hero-zoom {
-    from { background-position: 20% 40%; }
-    to   { background-position: 80% 60%; }
-}
-
-/* Gradientes decorativos adaptados para o tema Verde/Vortx */
+/* O overlay escuro para leitura do texto (MANTIDO) */
 .hero::before {
     content: '';
     position: absolute;
     inset: 0;
     pointer-events: none;
+    z-index: 0;
     background:
-        /* Vinheta preta na esquerda para melhorar a leitura do texto */
         linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%),
         radial-gradient(ellipse 65% 55% at 50% -5%,  rgba(0,255,100,.1), transparent 65%),
         radial-gradient(ellipse 40% 35% at 85% 80%,  rgba(0,255,100,.05),  transparent 65%);
 }
 
-/* Garante que o conteúdo fique acima do fundo */
+/* 🟢 Animação: Ida (mais rápida) e Volta (mais lenta) em uma só imagem */
+@keyframes bg-zoom-slow {
+    0% { 
+        /* Estado inicial: 110% garante que cubra a tela sem deixar bordas em branco */
+        background-size: 110%; 
+        background-position: 50% 50%; /* Centralizado */
+    }
+    35% { 
+        /* IDA (Aproximação): Aumenta o zoom para 135% e move levemente a posição */
+        background-size: 135%; 
+        background-position: 48% 52%; 
+    }
+    100% { 
+        /* VOLTA (Retorno lento): Leva os 65% restantes do tempo para voltar ao 110% */
+        background-size: 110%; 
+        background-position: 50% 50%; 
+    }
+}
+
+/* Container do texto (MANTIDO) */
 .hero > .container {
     margin-top: 60px;
     position: relative;
-    z-index: 1;
-    width: 100%; /* Garante que o container ocupe o espaço para alinhar itens */
+    z-index: 2;
+    width: 100%;
 }
 
 .hero-eyebrow {
