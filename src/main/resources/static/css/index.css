@@ -1,0 +1,208 @@
+/* ── Container global ───────────────────────────────── */
+.container {
+    max-width: var(--mw);
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+/* ── Hero (Homepage) ────────────────────────────────── */
+.hero {
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    /* Alinhamento à esquerda */
+    align-items: flex-start;
+    text-align: left;
+    padding: 4rem 0 6rem;
+    position: relative;
+    overflow: hidden;
+
+    /* Imagem de fundo - O Vórtex Verde */
+    background-image: url('../img/index_fundo2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+/* Gradientes decorativos adaptados para o tema Verde/Vortx */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+        /* Vinheta preta na esquerda para melhorar a leitura do texto */
+        linear-gradient(90deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%),
+        radial-gradient(ellipse 65% 55% at 50% -5%,  rgba(0,255,100,.1), transparent 65%),
+        radial-gradient(ellipse 40% 35% at 85% 80%,  rgba(0,255,100,.05),  transparent 65%);
+}
+
+/* Garante que o conteúdo fique acima do fundo */
+.hero > .container {
+    margin-top: 60px;
+    position: relative;
+    z-index: 1;
+    width: 100%; /* Garante que o container ocupe o espaço para alinhar itens */
+}
+
+.hero-eyebrow {
+    margin-bottom: 1.25rem;
+}
+
+/* Título principal - Escala reduzida e alinhado à esquerda */
+.hero-title {
+    /* Diminuído: era clamp(3.5rem, 9vw, 7rem) */
+    font-size: clamp(2.5rem, 6vw, 4.8rem); 
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.25rem;
+    background: var(--White-title);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    max-width: 800px;
+}
+
+.hero-subtitle {
+    /* Diminuído: era 1.15rem */
+    font-size: clamp(.85rem, 1.8vw, 1rem); 
+    color: var(--White-title);
+    max-width: 480px;
+    margin: 0 0 2rem 0; /* Removido o margin auto para alinhar à esquerda */
+    line-height: 1.6;
+    opacity: 0.8;
+}
+
+/* Botões CTA alinhados à esquerda */
+.hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-start; 
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+}
+
+/* Barra de badges alinhada à esquerda */
+.hero-badges {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding: .75rem 1.25rem;
+    border-radius: 999px;
+    background: rgba(0,255,100,.03);
+    border: 1px solid var(--border);
+    width: fit-content;
+    margin-left: 0; /* Alinhado à esquerda */
+}
+
+.hero-badge {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    font-size: .75rem; /* Reduzido */
+    font-weight: 600;
+    color: var(--muted);
+}
+
+.hero-badge .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent); /* Cor verde */
+    box-shadow: 0 0 8px var(--accent);
+    flex-shrink: 0;
+    animation: pulse 2s infinite;
+}
+
+/* ── Services Section ───────────────────────────────── */
+.services-section {
+    background: var(--dark-index);
+    padding: 5rem 1.5rem; /* Ajustado padding lateral */
+}
+
+.services-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+    gap: 1.25rem;
+    margin-top: 2.5rem;
+}
+
+/* ── Card de serviço (Ajuste de Tipografia) ──────────── */
+.svc-card {
+    background: rgba(255,255,255,.02);
+    border: 1px solid var(--border);
+    border-radius: var(--r);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+    transition: all var(--ease);
+}
+
+.svc-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-4px);
+}
+
+.svc-icon {
+    width: 40px; /* Reduzido de 46px */
+    height: 40px;
+    border-radius: .5rem;
+    background: var(--accent-d);
+    border: 1px solid rgba(0,255,100,.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    margin-bottom: 1rem;
+}
+
+.svc-tag {
+    font-size: .55rem; /* Reduzido */
+    font-weight: 800;
+    letter-spacing: .15em;
+    color: var(--dim);
+    margin-bottom: .3rem;
+}
+
+.svc-title {
+    font-size: 1.05rem; /* Reduzido de 1.2rem */
+    font-weight: 800;
+    margin-bottom: .5rem;
+}
+
+.svc-desc {
+    color: var(--muted);
+    font-size: 0.8rem; /* Reduzido de 0.875rem */
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    flex: 1;
+}
+
+.svc-feats {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: .4rem;
+    margin-bottom: 1.5rem;
+}
+
+.svc-feats li {
+    font-size: 0.75rem; /* Reduzido */
+    color: rgba(200,255,220,.7);
+}
+
+.svc-price {
+    font-size: 0.7rem;
+    color: var(--dim);
+}
+
+.svc-price span {
+    color: var(--accent);
+    font-size: 0.95rem; /* Reduzido de 1rem */
+    font-weight: 800;
+}

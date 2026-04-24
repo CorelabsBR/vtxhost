@@ -1,0 +1,36 @@
+/* ============================================================
+   AUTH.CSS
+   Usado em: login.html, cadastro.html
+   Contém: auth-page, auth-card, auth-title, auth-subtitle,
+           form-group, form-label, form-input, auth-note
+============================================================ */
+
+.auth-page {
+    min-height:90vh; display:flex;
+    align-items:center; justify-content:center; padding-block:4rem;
+}
+.auth-card {
+    width:min(480px,100%); background:var(--card);
+    border:1px solid var(--border); border-radius:var(--r-lg); padding:2.5rem;
+}
+.auth-title    { font-size:1.75rem; font-weight:900; margin-bottom:.35rem; }
+.auth-subtitle { color:var(--muted); font-size:.875rem; margin-bottom:2rem; line-height:1.6; }
+
+.form-group { display:flex; flex-direction:column; gap:.375rem; margin-bottom:1rem; }
+.form-label {
+    font-size:.82rem; font-weight:600;
+    color:rgba(240,253,246,.85); letter-spacing:.02em;
+}
+.form-input {
+    padding:.875rem 1rem; border-radius:var(--r-sm);
+    background:rgba(255,255,255,.04); border:1px solid var(--border);
+    color:var(--text); font-size:.9rem; outline:none;
+    transition:border-color var(--ease); font-family:inherit; width:100%;
+}
+.form-input:focus { border-color:var(--border-s); }
+.form-input::placeholder { color:var(--dim); }
+select.form-input { cursor:pointer; }
+
+.auth-note { text-align:center; margin-top:1rem; color:var(--muted); font-size:.875rem; }
+.auth-note a { color:var(--accent); font-weight:700; }
+input[type="checkbox"] { width:16px; height:16px; accent-color:var(--accent); }

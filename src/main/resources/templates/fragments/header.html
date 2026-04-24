@@ -5,9 +5,9 @@
 <header class="site-header" th:fragment="cabecalho">
     <div class="container">
         <nav class="nav-inner">
+
             <a class="brand" th:href="@{/}">
-                <div class="brand-icon">V</div>
-                <span>VortexHost</span>
+                <img th:src="@{/img/logo_vtxhost.png}" alt="logo_vtxhost" id="logo_img">
             </a>
 
             <ul class="nav-links">
@@ -22,9 +22,25 @@
                 <a class="btn btn-ghost btn-sm" th:href="@{/login}">Entrar</a>
                 <a class="btn btn-primary btn-sm" th:href="@{/cadastro}">Criar conta</a>
             </div>
+
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
+
+        </nav>
+
+        <nav class="mobile-nav" id="mobile-nav">
+            <a th:href="@{/}">Início</a>
+            <a th:href="@{/host}">Hospedagem</a>
+            <a th:href="@{/vps}">VPS</a>
+            <a th:href="@{/cpanel}">cPanel</a>
+            <a th:href="@{/login}">Entrar</a>
+            <a th:href="@{/registro}">Criar conta</a>
         </nav>
     </div>
 </header>
+
+<script th:src="@{/js/header.js}"></script>
 
 </body>
 </html>

@@ -1,10 +1,4 @@
-﻿/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   VortexHost Â· Design System
-   Inspirado na estrutura do AstralCloud
-   Identidade: Verde
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-
-:root {
+﻿:root {
     /* Backgrounds */
     --bg:      #050c08;
     --bg1:     #071009;
@@ -35,9 +29,10 @@
     --r-lg:    1.75rem;
     --mw:      1120px;
     --ease:    0.2s ease;
+    --White-title: #F9F4FC;
+    --white-menos: #DFDDE3;
 }
 
-/* â”€â”€ Reset â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
 html { scroll-behavior:smooth; }
 body {
@@ -54,20 +49,11 @@ a  { text-decoration:none; color:inherit; }
 img{ max-width:100%; }
 button { font-family:inherit; }
 
-/* â”€â”€ Layout â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.container {
-    width:min(var(--mw), calc(100% - 2rem));
-    margin-inline:auto;
+#logo_img {
+ height: 60px;
+ width: 60px;
 }
-section { padding-block:4.5rem; }
 
-/* â”€â”€ Typography helpers â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
-.eyebrow {
-    display:inline-block;
-    font-size:.7rem; font-weight:800;
-    letter-spacing:.16em; text-transform:uppercase;
-    color:var(--accent); margin-bottom:.75rem;
-}
 .section-title { font-size:clamp(1.9rem,4vw,3rem); font-weight:900; line-height:1.05; }
 .section-sub   { color:var(--muted); font-size:.95rem; max-width:500px; margin-top:.5rem; line-height:1.7; }
 .section-head  { margin-bottom:3rem; }
@@ -128,18 +114,38 @@ section { padding-block:4.5rem; }
 .pill::before { content:''; width:6px; height:6px; border-radius:50%; background:currentColor; flex-shrink:0; }
 @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
 
-/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•
-   NAVIGATION
-â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
-.site-header {
-    position:sticky; top:0; z-index:100;
-    backdrop-filter:blur(20px) saturate(1.6);
-    background:rgba(5,12,8,.82);
-    border-bottom:1px solid var(--border);
+/* 1. O Header (Fica por cima de tudo, transparente) */
+/* Remove qualquer margem padrão do body que possa causar faixas brancas */
+body {
+    margin: 0;
+    padding: 0;
 }
+
+.site-header {
+    position: absolute; /* Para flutuar sobre a imagem de fundo */
+    top: 0;
+    left: 0;
+    width: 100%;       /* Ocupa toda a largura da tela */
+    z-index: 1000;
+    background: transparent;
+    padding-block: 25px; /* Espaço em cima e embaixo do conteúdo */
+}
+
+/* Ajustamos o container para não limitar a largura no header */
+.site-header .container {
+    max-width: 100% !important; /* Força a usar todo o width */
+    width: 100%;
+    margin: 0;
+    padding-inline: 50px;       /* Distância das laterais (ajuste como preferir) */
+}
+/* Remova ou ignore qualquer menção a .site-header.scrolled */
+
+/* 3. A Navegação (Alinha logo, links e botões lado a lado perfeitamente) */
 .nav-inner {
-    display:flex; align-items:center; justify-content:space-between;
-    gap:1.5rem; padding-block:1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espalha Logo, Links e Botões */
+    width: 100%;
 }
 .brand { display:flex; align-items:center; gap:.75rem; font-weight:800; font-size:1.05rem; }
 .brand-icon {
@@ -148,15 +154,27 @@ section { padding-block:4.5rem; }
     font-size:1.1rem; font-weight:900; color:#021108; flex-shrink:0;
     box-shadow:0 0 20px var(--accent-g);
 }
-.nav-links { display:flex; align-items:center; gap:.125rem; list-style:none; }
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;      /* Espaço entre os links */
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
 .nav-links a {
-    padding:.5rem .875rem; border-radius:var(--r-sm);
-    color:var(--muted); font-weight:500; font-size:.9rem;
-    transition:all var(--ease);
+    text-decoration: none;
+    color: var(--White-title);
+    font-weight: 500;
+    transition: color 0.3s ease;
 }
 .nav-links a:hover { color:var(--text); background:rgba(255,255,255,.04); }
-.nav-actions   { display:flex; gap:.6rem; align-items:center; }
-.nav-area-note { font-size:.78rem; color:var(--muted); }
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.nav-area-note { font-size:.78rem; color:var(--white-menos); }
 .hamburger {
     display:none; flex-direction:column; gap:5px;
     background:none; border:none; cursor:pointer; padding:.5rem;
@@ -183,9 +201,16 @@ section { padding-block:4.5rem; }
    HERO (HOMEPAGE)
 â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */
 .hero {
+    padding-top: 160px;
     min-height:92vh; display:flex; flex-direction:column;
     align-items:center; justify-content:center;
     text-align:center; padding:4rem 0 6rem; position:relative; overflow:hidden;
+    background-image: url('../img/fundo_index.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    min-height: 400px; 
+    width: 100%;
 }
 .hero::before {
     content:''; position:absolute; inset:0; pointer-events:none;
@@ -194,16 +219,16 @@ section { padding-block:4.5rem; }
         radial-gradient(ellipse 45% 40% at 15% 90%,  rgba(20,155,72,.09),transparent 65%),
         radial-gradient(ellipse 40% 35% at 85% 80%,  rgba(30,180,85,.07),transparent 65%);
 }
-.hero > .container { position:relative; z-index:1; }
+.hero > .container { margin-top:60px; position:relative; z-index:1; }
 .hero-eyebrow { margin-bottom:1.5rem; }
 .hero-title {
     font-size:clamp(3.5rem,9vw,7rem); font-weight:900;
     line-height:.95; letter-spacing:-.03em; margin-bottom:1.5rem;
-    background:linear-gradient(180deg,#ffffff 20%,#b0ffe0 60%,#3dffa0 100%);
+    background:var(--White-title);
     -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
 }
 .hero-subtitle {
-    font-size:clamp(.95rem,2vw,1.15rem); color:var(--muted);
+    font-size:clamp(.95rem,2vw,1.15rem); color:var(--White-title);
     max-width:520px; margin:0 auto 2.25rem; line-height:1.75;
 }
 .hero-cta { display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-bottom:3rem; }
