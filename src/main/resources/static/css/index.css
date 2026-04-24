@@ -1,10 +1,3 @@
-/* ── Container global ───────────────────────────────── */
-.container {
-    max-width: var(--mw);
-    margin: 0 auto;
-    padding: 0 1.5rem;
-}
-
 /* ── Hero (Homepage) ────────────────────────────────── */
 .hero {
     min-height: 92vh;
@@ -23,6 +16,13 @@
     background-position: center;
     background-repeat: no-repeat;
     width: 100%;
+    animation: hero-pan 40s linear infinite alternate;
+    background-size: 120%;
+}
+
+@keyframes hero-zoom {
+    from { background-position: 20% 40%; }
+    to   { background-position: 80% 60%; }
 }
 
 /* Gradientes decorativos adaptados para o tema Verde/Vortx */
