@@ -21,7 +21,7 @@
                 <h1 class="auth-title">Bem-vindo de volta.</h1>
                 <p class="auth-sub">Acesse sua área do cliente para gerenciar seus serviços.</p>
 
-                <form method="POST" action="/login" novalidate>
+                <form action="/login" novalidate id="loginForm">
                     <input type="hidden" name="_csrf" value="token-de-exemplo">
 
                     <div class="form-group">
@@ -40,11 +40,16 @@
                 </form>
 
                 <p class="auth-foot">Ainda não tem conta? <a href="/registro">Criar conta grátis</a></p>
+
+                <div id="success" class="success"></div>
+                <div id="error-geral" class="error"></div>
             </div>
         </section>
     </main>
 
     <div th:replace="~{fragments/footer :: rodape}"></div>
+    
+    <script th:src="@{/js/login.js}"></script>
 
 </body>
 </html>

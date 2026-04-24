@@ -82,6 +82,18 @@ section { padding-block:4.5rem; }
 .flash-error   { background:var(--danger-d); color:#ffbcbc; border:1px solid rgba(255,94,94,.2); }
 .flash-success { background:var(--accent-d); color:#c0ffd9; border:1px solid rgba(61,255,160,.2); }
 
+.success {
+    background:var(--accent-d); color:#c0ffd9; border:1px solid rgba(61,255,160,.2);
+    border-radius:var(--r-sm); padding:.9rem 1.2rem;
+    margin-top:1rem; font-size:.875rem; font-weight:500;
+}
+
+.error {
+    background:var(--danger-d); color:#ffbcbc; border:1px solid rgba(255,94,94,.2);
+    border-radius:var(--r-sm); padding:.9rem 1.2rem;
+    margin-top:1rem; font-size:.875rem; font-weight:500;
+}
+
 /* â”€â”€ Buttons â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€ */
 .btn {
     display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
