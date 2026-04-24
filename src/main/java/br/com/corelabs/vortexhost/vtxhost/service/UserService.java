@@ -1,11 +1,12 @@
 package br.com.corelabs.vortexhost.vtxhost.service;
 
-import br.com.corelabs.vortexhost.vtxhost.entity.User;
-import br.com.corelabs.vortexhost.vtxhost.repository.UserRepository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import br.com.corelabs.vortexhost.vtxhost.entity.User;
+import br.com.corelabs.vortexhost.vtxhost.repository.UserRepository;
+import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
@@ -21,6 +22,16 @@ public class UserService {
         }
         usuario.setSenha(passwordEncoder.encode(usuario.getSenha()));
         return userRepository.save(usuario);
+    }
+
+    public User authenticate(User user) {
+        User usuarioBanco = userRepository.findByEmail(user.getEmail());
+
+        if (usuarioBanco == null || !passwordEncoder.matches(user.getSenha(), usuarioBanco.getSenha())) {
+            return null;
+        }
+
+        return usuarioBanco;
     }
 
     public User findByEmail(String email) {
