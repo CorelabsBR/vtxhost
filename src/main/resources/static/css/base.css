@@ -1,0 +1,115 @@
+/* ============================================================
+   BASE.CSS
+   Usado em: TODAS as páginas (importar primeiro)
+   Contém: variáveis CSS, reset, body, tipografia global,
+           flash messages, buttons, pills
+============================================================ */
+
+:root {
+    /* Backgrounds */
+    --bg:      #050c08;
+    --bg1:     #071009;
+    --bg2:     #0c1a11;
+    /* Cards */
+    --card:    rgba(255,255,255,0.025);
+    --card-hv: rgba(255,255,255,0.045);
+    /* Borders */
+    --border:  rgba(61,255,140,0.1);
+    --border-s:rgba(61,255,140,0.28);
+    /* Text */
+    --text:    #f0fdf6;
+    --muted:   #87b89d;
+    --dim:     #4c6d5c;
+    /* Accent */
+    --accent:  #3dffa0;
+    --accent-d:rgba(61,255,160,0.1);
+    --accent-g:rgba(61,255,160,0.35);
+    /* Buttons */
+    --btn-grad:linear-gradient(135deg,#33d987 0%,#18a854 100%);
+    /* Danger */
+    --danger:  #ff5e5e;
+    --danger-d:rgba(255,94,94,0.1);
+    /* Misc */
+    --shadow:  0 28px 70px rgba(0,0,0,0.45);
+    --r:       1.25rem;
+    --r-sm:    0.625rem;
+    --r-lg:    1.75rem;
+    --mw:      1120px;
+    --ease:    0.2s ease;
+    --White-title: #F9F4FC;
+    --white-menos: #DFDDE3;
+    --dark-index: #010E05;
+}
+
+*,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+html { scroll-behavior:smooth; }
+body {
+    font-family:'Inter','Segoe UI',system-ui,-apple-system,sans-serif;
+    color:var(--text);
+    background-color:var(--bg);
+    background-image:
+        radial-gradient(ellipse 80% 55% at 15% -5%,  rgba(40,215,110,0.13),transparent 50%),
+        radial-gradient(ellipse 60% 45% at 85% 110%, rgba(20,160,75,0.10),transparent 50%);
+    min-height:100vh;
+    line-height:1.6;
+    margin: 0;
+    padding: 0;
+}
+a  { text-decoration:none; color:inherit; }
+img{ max-width:100%; }
+button { font-family:inherit; }
+
+#logo_img {
+    height: 60px;
+    width: 60px;
+}
+
+/* ── Seções ─────────────────────────────────────────── */
+.section-title { font-size:clamp(1.9rem,4vw,3rem); font-weight:900; line-height:1.05; }
+.section-sub   { color:var(--muted); font-size:.95rem; max-width:500px; margin-top:.5rem; line-height:1.7; }
+.section-head  { margin-bottom:3rem; }
+.section-head.center { text-align:center; }
+.section-head.center .section-sub { margin-inline:auto; }
+
+/* ── Flash ──────────────────────────────────────────── */
+.flash {
+    border-radius:var(--r-sm); padding:.9rem 1.2rem;
+    margin-top:1rem; font-size:.875rem; font-weight:500;
+}
+.flash-error   { background:var(--danger-d); color:#ffbcbc; border:1px solid rgba(255,94,94,.2); }
+.flash-success { background:var(--accent-d); color:#c0ffd9; border:1px solid rgba(61,255,160,.2); }
+
+/* ── Buttons ────────────────────────────────────────── */
+.btn {
+    display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+    padding:.75rem 1.5rem; border-radius:999px;
+    font-weight:700; font-size:.875rem; letter-spacing:.02em;
+    border:none; cursor:pointer; transition:all var(--ease);
+    text-decoration:none; white-space:nowrap; line-height:1;
+}
+.btn-primary {
+    background:var(--btn-grad); color:#031408;
+    box-shadow:0 8px 26px rgba(27,165,78,.35);
+}
+.btn-primary:hover { filter:brightness(1.1); transform:translateY(-1px); box-shadow:0 14px 36px rgba(27,165,78,.5); }
+.btn-ghost  { background:transparent; color:var(--text); border:1px solid var(--border-s); }
+.btn-ghost:hover  { background:var(--accent-d); border-color:var(--accent); color:var(--accent); }
+.btn-outline{ background:var(--accent-d); color:var(--accent); border:1px solid rgba(61,255,160,.2); }
+.btn-outline:hover{ background:rgba(61,255,160,.18); }
+.btn-danger { background:var(--danger-d); color:#ffb0b0; border:1px solid rgba(255,94,94,.25); }
+.btn-danger:hover { background:rgba(255,94,94,.2); }
+.btn-sm  { padding:.5rem 1rem; font-size:.8rem; }
+.btn-lg  { padding:1rem 2.2rem; font-size:1rem; }
+.btn-full{ width:100%; }
+
+/* ── Pill badges ────────────────────────────────────── */
+.pill {
+    display:inline-flex; align-items:center; gap:.4rem;
+    padding:.3rem .75rem; border-radius:999px;
+    font-size:.7rem; font-weight:700; letter-spacing:.08em; text-transform:uppercase;
+}
+.pill-accent { background:var(--accent-d); color:var(--accent); border:1px solid rgba(61,255,160,.2); }
+.pill-dim    { background:rgba(255,255,255,.05); color:var(--muted); border:1px solid var(--border); }
+.pill::before { content:''; width:6px; height:6px; border-radius:50%; background:currentColor; flex-shrink:0; }
+
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }

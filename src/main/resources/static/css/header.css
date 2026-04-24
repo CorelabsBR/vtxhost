@@ -1,0 +1,173 @@
+/* ============================================================
+   HEADER.CSS (VERSÃO CENTRALIZADA)
+   Estrutura: [LOGO] ---- [LINKS CENTRALIZADOS] ---- [AÇÕES]
+============================================================ */
+
+:root {
+    /* Variáveis de apoio baseadas no seu código */
+    --ease: all 0.3s ease;
+    --r-sm: 4px;
+}
+
+.site-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: transparent;
+    padding-block: 25px;
+}
+
+/* Container configurado para ocupar a largura total com respiro lateral */
+.site-header .container {
+    max-width: 100% !important;
+    width: 100%;
+    margin: 0;
+    padding-inline: 50px;
+}
+
+/* Inner Nav: O container pai que segura os três blocos */
+.nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Empurra Brand e Actions para as extremidades */
+    width: 100%;
+    position: relative; /* Necessário para que o posicionamento absoluto dos links seja relativo a este container */
+}
+
+/* Bloco da Esquerda: Marca/Logo */
+.brand { 
+    display: flex; 
+    align-items: center; 
+    gap: .75rem; 
+    font-weight: 800; 
+    font-size: 1.05rem; 
+    z-index: 10; /* Garante que o logo fique acima de outros elementos se necessário */
+}
+
+.brand-icon {
+    width: 2.5rem; 
+    height: 2.5rem; 
+    border-radius: .625rem;
+    background: var(--btn-grad); 
+    display: grid; 
+    place-items: center;
+    font-size: 1.1rem; 
+    font-weight: 900; 
+    color: #021108; 
+    flex-shrink: 0;
+    box-shadow: 0 0 20px var(--accent-g);
+}
+
+/* Bloco Central: Links de Navegação */
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    /* TÉCNICA DE CENTRALIZAÇÃO REAL */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* Move o elemento 50% da sua própria largura para a esquerda, centralizando o eixo */
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--White-title);
+    font-weight: 500;
+    transition: color 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 4px;
+}
+
+.nav-links a:hover { 
+    color: var(--text); 
+    background: rgba(255,255,255,.04); 
+}
+
+/* Bloco da Direita: Ações/Botões */
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    z-index: 10; /* Mantém as ações clicáveis e acima do fluxo absoluto */
+}
+
+.nav-area-note { 
+    font-size: .78rem; 
+    color: var(--white-menos); 
+}
+
+/* ============================================================
+   RESPONSIVIDADE E MENU MOBILE
+============================================================ */
+
+.hamburger {
+    display: none; 
+    flex-direction: column; 
+    gap: 5px;
+    background: none; 
+    border: none; 
+    cursor: pointer; 
+    padding: .5rem;
+}
+
+.hamburger span {
+    display: block; 
+    width: 22px; 
+    height: 2px; 
+    background: var(--text);
+    border-radius: 2px; 
+    transition: transform .3s, opacity .3s;
+}
+
+/* Animação do ícone X quando aberto */
+.hamburger.is-open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+.hamburger.is-open span:nth-child(2){ opacity: 0; }
+.hamburger.is-open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+/* Menu que aparece no Mobile abaixo do Header */
+.mobile-nav {
+    display: none; 
+    flex-direction: column; 
+    gap: .2rem;
+    padding: .75rem 0 1rem; 
+    border-top: 1px solid var(--border);
+}
+
+.mobile-nav a {
+    padding: .75rem 1rem; 
+    border-radius: var(--r-sm);
+    color: var(--muted); 
+    font-weight: 500; 
+    transition: all var(--ease);
+}
+
+.mobile-nav a:hover { 
+    color: var(--text); 
+    background: var(--accent-d); 
+}
+
+.mobile-nav.open { 
+    display: flex; 
+}
+
+/* Media Query para telas menores */
+@media (max-width: 992px) {
+    /* Esconde os links centrais e mostra o hamburger */
+    .nav-links {
+        display: none;
+    }
+    
+    .hamburger {
+        display: flex;
+    }
+    
+    .site-header .container {
+        padding-inline: 20px; /* Reduz espaçamento lateral no mobile */
+    }
+}

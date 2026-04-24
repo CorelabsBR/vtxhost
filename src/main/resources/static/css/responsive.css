@@ -1,0 +1,49 @@
+/* ============================================================
+   RESPONSIVE.CSS
+   Usado em: TODAS as páginas (importar por último)
+   Contém: media queries para 1024px, 768px e 480px
+============================================================ */
+
+/* ── Tablet largo / desktop pequeno (até 1024px) ────── */
+@media (max-width: 1024px) {
+    .plans-grid          { grid-template-columns: 1fr 1fr; }
+    .footer-grid         { grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .feature-block       { grid-template-columns: 1fr; gap: 2rem; }
+    .feature-block.reverse { direction: ltr; }
+    .faq-grid            { grid-template-columns: 1fr; }
+    .page-hero-inner     { grid-template-columns: 1fr; }
+    .admin-stats         { grid-template-columns: 1fr 1fr; }
+    .admin-form-grid     { grid-template-columns: 1fr 1fr; }
+    .services-grid       { grid-template-columns: 1fr 1fr; } /* 3 → 2 colunas */
+    .mini-stats-bar      { gap: 2rem; }
+}
+
+/* ── Tablet estreito (até 768px) ────────────────────── */
+@media (max-width: 768px) {
+    section              { padding-block: 3rem; }
+    .hero                { min-height: 80vh; padding: 3rem 0 4rem; }
+    .plans-grid          { grid-template-columns: 1fr; }
+    .nav-links           { display: none; }        /* menu oculto → hamburger */
+    .hamburger           { display: flex; }
+    .footer-grid         { grid-template-columns: 1fr; gap: 2rem; }
+    .footer-bottom       { flex-direction: column; text-align: center; }
+    .account-grid        { grid-template-columns: 1fr; }
+    .admin-form-grid     { grid-template-columns: 1fr; }
+    .admin-stats         { grid-template-columns: 1fr 1fr; }
+    .account-head        { flex-direction: column; }
+    .edit-dropdown       { width: 280px; right: auto; left: 0; }
+    .faq-grid            { gap: 2rem; }
+}
+
+/* ── Mobile (até 560px) ─────────────────────────────── */
+@media (max-width: 560px) {
+    .services-grid       { grid-template-columns: 1fr; } /* 2 → 1 coluna */
+}
+
+/* ── Mobile pequeno (até 480px) ─────────────────────── */
+@media (max-width: 480px) {
+    .hero-cta            { flex-direction: column; }
+    .admin-stats         { grid-template-columns: 1fr; }
+    .billing-switcher    { gap: .375rem; }
+    .admin-form-grid     { grid-template-columns: 1fr; }
+}
