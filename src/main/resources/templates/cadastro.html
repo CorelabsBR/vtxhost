@@ -1,41 +1,148 @@
-<?php $title = 'Registro'; ?>
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - VortexHost</title>
+</head>
+<body>
 
 <section class="auth-page">
     <div class="auth-card">
         <div class="auth-logo">
-            <div class="brand"><div class="brand-icon">V</div><span>VortexHost</span></div>
+            <div class="brand">
+                <div class="brand-icon">V</div>
+                <span>VortexHost</span>
+            </div>
         </div>
         <h1 class="auth-title">Comece gratuitamente.</h1>
         <p class="auth-sub">Crie sua conta e acesse a melhor infraestrutura do Brasil e Canadá.</p>
 
-        <form method="POST" action="<?= e(base_url('/registro')) ?>" novalidate>
-            <input type="hidden" name="_csrf" value="<?= e(\App\Core\Session::csrfToken()) ?>">
+<div th:if="${erro}" class="alert alert-error" id="erroBox">
+            <p th:text="${erro}"></p>
+        </div>
+        <div id="jsError" class="alert alert-error" style="display:none;"></div>
+
+        <form id="cadastroForm" th:object="${user}" method="POST" th:action="@{/api/cadastro}" novalidate>
+            <input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}">
+
+            <!-- ── Dados da conta ── -->
+            <div class="form-group">
+                <label class="form-label" for="nome">Nome completo</label>
+                <input class="form-input" type="text" id="nome" th:field="*{nome}"
+                       required autocomplete="name" placeholder="João Silva">
+            </div>
 
             <div class="form-group">
-                <label class="form-label" for="name">Nome completo</label>
-                <input class="form-input" type="text" id="name" name="name"
-                       required value="<?= e(old('name')) ?>" autocomplete="name" placeholder="João Silva">
-            </div>
-            <div class="form-group">
                 <label class="form-label" for="email">E-mail</label>
-                <input class="form-input" type="email" id="email" name="email"
-                       required value="<?= e(old('email')) ?>" autocomplete="email" placeholder="seu@email.com">
+                <input class="form-input" type="email" id="email" th:field="*{email}"
+                       required autocomplete="email" placeholder="seu@email.com">
             </div>
+
             <div class="form-group">
-                <label class="form-label" for="password">Senha</label>
-                <input class="form-input" type="password" id="password" name="password"
-                       required autocomplete="new-password" placeholder="Mínimo 8 caracteres">
+                <label class="form-label" for="senha">Senha</label>
+                <input class="form-input" type="password" id="senha" th:field="*{senha}"
+                       required autocomplete="new-password"
+                       placeholder="Mínimo 8 caracteres">
             </div>
+
             <div class="form-group">
-                <label class="form-label" for="password_confirmation">Confirmar senha</label>
-                <input class="form-input" type="password" id="password_confirmation"
-                       name="password_confirmation" required autocomplete="new-password"
+                <label class="form-label" for="senhaConfirmacao">Confirmar senha</label>
+                <input class="form-input" type="password" id="senhaConfirmacao"
+                       name="passwordConfirmation"
+                       required autocomplete="new-password"
                        placeholder="Repita a senha">
             </div>
 
-            <button class="btn btn-primary btn-full" style="margin-top:.5rem" type="submit">CRIAR CONTA</button>
+            <!-- ── Dados pessoais ── -->
+            <div class="form-group">
+                <label class="form-label" for="cpfCnpj">CPF / CNPJ</label>
+                <input class="form-input" type="text" id="cpfCnpj" th:field="*{cpfCnpj}"
+                       placeholder="000.000.000-00">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="celular">Celular</label>
+                <input class="form-input" type="tel" id="celular" th:field="*{celular}"
+                       autocomplete="tel" placeholder="(51) 99999-9999">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="dataNasc">Data de nascimento</label>
+                <input class="form-input" type="date" id="dataNasc" th:field="*{dataNasc}">
+            </div>
+
+            <!-- ── Endereço ── -->
+            <div class="form-group">
+                <label class="form-label" for="cep">CEP</label>
+                <input class="form-input" type="text" id="cep" th:field="*{cep}"
+                       placeholder="00000-000"
+                       oninput="buscaCep(this.value)">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="rua">Rua</label>
+                <input class="form-input" type="text" id="rua" th:field="*{rua}"
+                       autocomplete="street-address"
+                       placeholder="Rua das Acácias">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="numero">Número</label>
+                <input class="form-input" type="text" id="numero" th:field="*{numero}" placeholder="123">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="complemento">Complemento</label>
+                <input class="form-input" type="text" id="complemento" th:field="*{complemento}"
+                placeholder="Apto 42, Bloco B">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="bairro">Bairro</label>
+                <input class="form-input" type="text" id="bairro" th:field="*{bairro}" placeholder="Centro">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="cidade">Cidade</label>
+                <input class="form-input" type="text" id="cidade" th:field="*{cidade}" placeholder="Porto Alegre">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="estado">Estado</label>
+                <input class="form-input" type="text" id="estado" th:field="*{estado}" placeholder="RS">
+            </div>
+
+            <div class="form-group">
+                <label class="form-label" for="pais">País</label>
+                <input class="form-input" type="text" id="pais" th:field="*{pais}"
+                       autocomplete="country-name" placeholder="Brasil">
+            </div>
+
+            <button class="btn btn-primary btn-full" style="margin-top:.5rem" type="submit">
+                CRIAR CONTA
+            </button>
         </form>
 
-        <p class="auth-foot">Já tem conta? <a href="<?= e(base_url('/login')) ?>">Entrar</a></p>
+        <p class="auth-foot">Já tem conta? <a th:href="@{/login}">Entrar</a></p>
     </div>
 </section>
+
+<script>
+    async function buscaCep(v) {
+        const cep = v.replace(/\D/g, '');
+        if (cep.length !== 8) return;
+        try {
+            const r = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
+            const d = await r.json();
+            if (d.erro) return;
+            document.getElementById('rua').value    = d.logradouro || '';
+            document.getElementById('bairro').value = d.bairro     || '';
+            document.getElementById('cidade').value = d.localidade || '';
+            document.getElementById('estado').value = d.uf         || '';
+        } catch (_) {}
+    }
+</script>
+<script th:src="@{/js/cadastrar.js}"></script>
+
+</body>
+</html>

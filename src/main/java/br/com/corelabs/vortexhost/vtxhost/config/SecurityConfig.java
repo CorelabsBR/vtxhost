@@ -12,27 +12,23 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http
-            .csrf(csrf -> csrf.disable())
+            // ✅ NÃO desativa CSRF
             .authorizeHttpRequests(auth -> auth
-                // 🔓 público
                 .requestMatchers(
                     "/", 
                     "/home",
                     "/auth/**",
                     "/login",
+                    "/api/cadastro",
                     "/css/**",
                     "/js/**",
                     "/images/**"
                 ).permitAll()
-
-                // 🔒 protegido (área do cliente)
                 .requestMatchers("/areacliente/**").authenticated()
-
-                // 🔓 resto liberado (opcional)
                 .anyRequest().permitAll()
             )
             .formLogin(form -> form
-                .loginPage("/login") // sua página
+                .loginPage("/login") 
                 .permitAll()
             );
 
